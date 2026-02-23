@@ -28,5 +28,5 @@ def process_packet(packet):
 
 print("Sentinel NIDS is monitoring... (Endless Mode Active - Press Ctrl+C to stop)")
 
-# Sniffing forever on eth0 (count=0 means infinite)
+# For Info - (count=0 means infinite)
 sniff(iface='eth0', prn=process_packet, count=0)
