@@ -25,7 +25,7 @@ def log_alert(ip_src, packet_count, action="Logged"):
 def block_ip(ip_src):
     """NEW: Tells the Linux Firewall to drop all traffic from the hacker!"""
     print(f"\n[X] THREAT MITIGATED: Dropping all traffic from {ip_src} via iptables!\n")
-    # This is the actual Linux command to block an IP
+    #Linux command to block an IP
     os.system(f"iptables -A INPUT -s {ip_src} -j DROP")
 
 def process_packet(packet):
@@ -36,7 +36,7 @@ def process_packet(packet):
         packet_counts[ip_src] += 1
         
         if packet_counts[ip_src] >= THRESHOLD:
-            # If we haven't blocked them yet, do it now!
+            
             if ip_src not in blocked_ips:
                 print(f"[!!!] ALERT: {ip_src} crossed threshold! Initiating block...")
                 block_ip(ip_src)
