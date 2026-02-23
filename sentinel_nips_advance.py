@@ -6,7 +6,7 @@ import os
 
 # --- SENTINEL CONFIGURATION ---
 packet_counts = defaultdict(int)
-blocked_ips = set() # NEW: Keeps track of IPs we have already blocked
+blocked_ips = set() #Keeps track of IPs that are already blocked
 THRESHOLD = 10 
 LOG_FILE = "security_log.csv"
 # ------------------------------
