@@ -2,10 +2,10 @@ from scapy.all import sniff, IP, TCP, UDP
 from collections import defaultdict
 
 # --- SENTINEL CONFIGURATION ---
-# Dictionary to remember how many packets each IP has sent
+
 packet_counts = defaultdict(int)
 
-# The threshold: If an IP sends more than this many packets, trigger an alert!
+
 THRESHOLD = 10 
 # ------------------------------
 
