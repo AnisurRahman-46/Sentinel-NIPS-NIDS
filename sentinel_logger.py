@@ -10,7 +10,6 @@ THRESHOLD = 10
 LOG_FILE = "security_log.csv"
 # ------------------------------
 
-# Create the CSV file with headers if it doesn't exist yet
 if not os.path.exists(LOG_FILE):
     with open(LOG_FILE, mode='w', newline='') as file:
         writer = csv.writer(file)
