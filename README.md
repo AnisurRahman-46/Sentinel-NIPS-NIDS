@@ -57,10 +57,37 @@ Instead of just alerting, the NIPS actively neutralizes the threat. The exact mi
 <img width="1920" height="927" alt="hack4FW" src="https://github.com/user-attachments/assets/a569765d-d6d1-476c-92b6-2f3aaeb5037b" />
 
 
+### Phase 3: Enterprise SIEM Integration (Splunk)
+To bring this tool to an enterprise standard, Sentinel is fully integrated with **Splunk Enterprise** to provide a live Security Operations Center (SOC) dashboard for threat telemetry and visualization.
+
+<img width="1920" height="927" alt="splunkINstallation" src="https://github.com/user-attachments/assets/360cab25-5e07-4f34-89c2-3d9da73e6abe" />
+
+**Features:**
+* **Live Data Ingestion:** Configured Splunk with a continuous file monitor on the `security_log.csv` output to ingest threat intelligence in real time.
+* **SOC Operations Dashboard:** Built a customized Classic Dashboard for threat visualization.
+* **Advanced SPL Queries:** Utilizes Splunk Processing Language to track total mitigated threats, attack volume by IP, and live attack timelines during live-fire DDoS simulations (`hping3` & Metasploitable floods).
+
+**SIEM Dashboard & SPL Queries**
+The Splunk dashboard was constructed using the following queries to monitor Sentinel's performance:
+
+*Total Threats Mitigated (Single Value)*
+
+```source="*security_log.csv" | stats count```
+
+*Attack Volume by IP Address (Bar Chart)*
+
+```source="*security_log.csv" | stats count by Attacker_IP```
+
+*Live Attack Telemetry (Area Chart)*
+
+```source="*security_log.csv" | timechart count by Attacker_IP```
+
+<img width="1920" height="927" alt="finaldashboard1" src="https://github.com/user-attachments/assets/8bc2324d-8f9b-471e-84d2-665431a9d00e" />
+
 
 ---
 
 ## Tech Stack
 * **Language:** Python 3
 * **Libraries:** Scapy, Collections, OS, CSV, Datetime
-* **Environment:** Linux CLI, VirtualBox, iptables
+* **Environment:** Linux CLI, VirtualBox, iptables, Splunk Enterprise
